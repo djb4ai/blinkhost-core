@@ -9,7 +9,7 @@ An agent generates a frontend artifact, publishes it to Blinkhost, and gets back
 1. Agent generates HTML/CSS/JS files
 2. Agent calls the Blinkhost API with a file manifest
 3. Agent uploads files to presigned URLs
-4. Agent finalizes the publish -- site is live at `<slug>.blinkhost.co.in`
+4. Agent finalizes the publish -- site is live at `<slug>.blinkhost.co`
 
 ## Architecture
 
@@ -20,7 +20,7 @@ A single Cloudflare Worker handles everything: API, landing page, and public sit
 | Cloudflare Worker | API + static pages + site delivery |
 | Cloudflare D1 | SQLite database for site metadata |
 | Cloudflare R2 | Content-addressed blob storage |
-| Wildcard DNS | `*.blinkhost.co.in` routes to the Worker |
+| Wildcard DNS | `*.blinkhost.co` routes to the Worker |
 
 ## Quick Start (Local Development)
 
@@ -97,7 +97,7 @@ You also need wildcard DNS configured on Cloudflare:
 Agents can install the Blinkhost skill to publish directly:
 
 ```bash
-curl -fsSL https://blinkhost.co.in/install.sh | bash
+curl -fsSL https://blinkhost.co/install.sh | bash
 ```
 
 This installs a `publish.sh` script that handles the full create -> upload -> finalize flow.
